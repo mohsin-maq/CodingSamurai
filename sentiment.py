@@ -12,12 +12,12 @@ with open('vector.pkl', 'rb') as vectorizer_file:
 
 # Sidebar with app logo and info
 st.sidebar.image('twit.png', width=200)
-st.sidebar.title("Sentiment Analysis App")
+st.sidebar.title("Twitter Sentiment Analysis")
 st.sidebar.markdown("This app analyzes sentiment in text data and provides sentiment labels and polarity values. It can help you quickly determine the emotional tone and polarity of text, whether it's a review, tweet, or any other form of text.Feel free to enter your own text and see how it's analyzed!")
 
 
 # Streamlit UI
-st.title("Sentiment Analysis Web App")
+st.title("Twitter Sentiment Analysis Web App")
 st.write("Enter text to predict sentiment:")
 
 user_input = st.text_area("Enter text:", "", height=150, max_chars=500)
@@ -29,16 +29,17 @@ if st.button("Analyze", key="analyze_button"):
         user_input_tfidf = tfidf_vectorizer.transform([user_input])
         
         # Predict the sentiment and get the polarity value
-        sentiment = model.predict(user_input_tfidf)[0]  # Ensure you get the first prediction
+        sentiment = model.predict(user_input_tfidf)[0] 
+        sentiment= round(sentiment,2) # Ensure you get the first prediction
         
         # Determine the sentiment label and color
-        if sentiment > 0.4:
+        if sentiment >= 0.1:
             sentiment_label = "Positive"
             color = "lightgreen"
-        elif sentiment < 0:
+        elif sentiment < -0.1:
             sentiment_label = "Negative"
             color = "red"
-        elif 0 < sentiment < 0.4 :
+        else :
             sentiment_label = "Neutral"
             color = "yellow"
 
