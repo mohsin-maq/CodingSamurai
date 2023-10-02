@@ -1,4 +1,4 @@
-# CodingSamurai_SentimentAnalysis
+# CodingSamurai
 
 The pickle fies and python files are for the user interface which is deployed by streamlit . 
 after saving the file you can write 'streamlit run sentiment.py' on your cmd to interact with that interface.
