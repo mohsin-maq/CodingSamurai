@@ -1,4 +1,12 @@
 import streamlit as st
+
+st.set_page_config(
+    page_title="Iris Flower Species Predictor",
+    page_icon="🌸",
+    layout="centered",
+    initial_sidebar_state="expanded",
+)
+
 import joblib
 import numpy as np
 
@@ -13,12 +21,7 @@ model = joblib.load('iris_model (1).pkl')
 # }
 
 # Define the app with a custom title and background color
-st.set_page_config(
-    page_title="Iris Flower Species Predictor",
-    page_icon="🌸",
-    layout="centered",
-    initial_sidebar_state="expanded",
-)
+
 
 # Create a sidebar with information about the app
 st.sidebar.image('logoiris.png')
